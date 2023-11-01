@@ -11,7 +11,7 @@ import { defineConfig, devices } from '@playwright/test'
  * @see https://playwright.dev/docs/test-configuration
  */
 const config =  defineConfig({
-  testDir: './tests',
+  testDir: './tests/auth',
   globalSetup: './globalSetup',
   globalTeardown: './globalTeardown',
   timeout: 360_000,
@@ -27,12 +27,24 @@ const config =  defineConfig({
   reporter: [['html', {open: 'never'}]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    headless: false,
+    httpCredentials: {
+      username: "guest",
+      password: "welcome2qauto"
+    },
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
-
+    baseURL: 'https://qauto.forstudy.space/',
+    viewport: {
+      width: 1200,
+      height: 840
+    },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    launchOptions:{
+      slowMo: 1000
+    }
   },
+
 
   /* Configure projects for major browsers */
   projects: [
@@ -41,16 +53,7 @@ const config =  defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-
+    
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
