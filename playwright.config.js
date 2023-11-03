@@ -11,7 +11,7 @@ import { defineConfig, devices } from '@playwright/test'
  * @see https://playwright.dev/docs/test-configuration
  */
 const config =  defineConfig({
-  testDir: './tests/auth',
+  testDir: './tests',
   globalSetup: './globalSetup',
   globalTeardown: './globalTeardown',
   timeout: 360_000,

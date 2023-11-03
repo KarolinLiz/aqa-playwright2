@@ -1,28 +1,22 @@
 import {expect, test} from "@playwright/test";
 
-test.describe("Auth1", ()=>{
+test.describe("Auth", ()=>{
     test("The user should be created with valid credentials", async ({page})=>{
-        const name = 'Yilia'
-        const lastName = 'Kondratenko'
-        const email = 'aqa-kondratenko@icloud.com'
+        const name = 'Tyglia'
+        const lastName = 'Kghndratenko'
+        const email = 'aqa-kokhgfratenko@icloud.com'
         const password = 'Likavlad2021'
         const repassword = 'Likavlad2021'
 
 
         await page.goto('/')
         
-        const logInButton = page.locator('//div/button[2]')
-        await expect(logInButton, "Sign in button should be visible").toBeVisible()
-        await expect(logInButton, "Sign in button should be enabled").toBeEnabled()
+        const signUpButton = page.locator('div [class="hero-descriptor_btn btn btn-primary"]')
+        await expect(signUpButton, "Sign in button should be visible").toBeVisible()
+        await expect(signUpButton, "Sign in button should be enabled").toBeEnabled()
 
-        await logInButton.click()
+        await signUpButton.click()
 
-        const popup = page.locator('//app-signin-modal')
-        await expect(popup, "Popup should be visible").toBeVisible()
-
-        const registrationButton = page.locator('//* [@class="btn btn-link"]', {hasText: 'Registration'})
-
-        await registrationButton.click()
 
         const nameInput = page.locator('//* [@id="signupName"]')
         const lastNameInput = page.locator('//* [@id="signupLastName"]')
@@ -47,25 +41,18 @@ test.describe("Auth1", ()=>{
 
 
 
-test.describe("Auth2", ()=>{
+test.describe("Auth", ()=>{
     test("The alert message should be visible if user enters invalid name, shorter than 2 simbols", async ({page})=>{
         const name = 'E'
         const lastName = 'Klyemenko'
         
         await page.goto('/')
         
-        const logInButton = page.locator('//div/button[2]')
-        await expect(logInButton, "Sign in button should be visible").toBeVisible()
-        await expect(logInButton, "Sign in button should be enabled").toBeEnabled()
+        const signUpButton = page.locator('div [class="hero-descriptor_btn btn btn-primary"]')
+        await expect(signUpButton, "Sign in button should be visible").toBeVisible()
+        await expect(signUpButton, "Sign in button should be enabled").toBeEnabled()
 
-        await logInButton.click()
-
-        const popup = page.locator('//app-signin-modal')
-        await expect(popup, "Popup should be visible").toBeVisible()
-
-        const registrationButton = page.locator('//* [@class="btn btn-link"]', {hasText: 'Registration'})
-
-        await registrationButton.click()
+        await signUpButton.click()
 
         const nameInput = page.locator('//* [@id="signupName"]')
         const lastNameInput = page.locator('//* [@id="signupLastName"]')
@@ -92,18 +79,11 @@ test.describe("Auth3", ()=>{
 
         await page.goto('/')
         
-        const logInButton = page.locator('//div/button[2]')
-        await expect(logInButton, "Sign in button should be visible").toBeVisible()
-        await expect(logInButton, "Sign in button should be enabled").toBeEnabled()
+        const signUpButton = page.locator('div [class="hero-descriptor_btn btn btn-primary"]')
+        await expect(signUpButton, "Sign in button should be visible").toBeVisible()
+        await expect(signUpButton, "Sign in button should be enabled").toBeEnabled()
 
-        await logInButton.click()
-
-        const popup = page.locator('//app-signin-modal')
-        await expect(popup, "Popup should be visible").toBeVisible()
-
-        const registrationButton = page.locator('//* [@class="btn btn-link"]', {hasText: 'Registration'})
-
-        await registrationButton.click()
+        await signUpButton.click()
 
         const nameInput = page.locator('//* [@id="signupName"]')
         const lastNameInput = page.locator('//* [@id="signupLastName"]')
@@ -123,7 +103,7 @@ test.describe("Auth3", ()=>{
     })
 })
 
-test.describe("Auth4", ()=>{
+test.describe("Auth", ()=>{
     test("The user couldn't be created if he enters invalid email address in the email field", async ({page})=>{
         const name = 'Eelyzaveta'
         const lastName = 'Klyemenko'
@@ -133,18 +113,11 @@ test.describe("Auth4", ()=>{
 
         await page.goto('/')
         
-        const logInButton = page.locator('//div/button[2]')
-        await expect(logInButton, "Sign in button should be visible").toBeVisible()
-        await expect(logInButton, "Sign in button should be enabled").toBeEnabled()
+        const signUpButton = page.locator('div [class="hero-descriptor_btn btn btn-primary"]')
+        await expect(signUpButton, "Sign in button should be visible").toBeVisible()
+        await expect(signUpButton, "Sign in button should be enabled").toBeEnabled()
 
-        await logInButton.click()
-
-        const popup = page.locator('//app-signin-modal')
-        await expect(popup, "Popup should be visible").toBeVisible()
-
-        const registrationButton = page.locator('//* [@class="btn btn-link"]', {hasText: 'Registration'})
-
-        await registrationButton.click()
+        await signUpButton.click()
 
         const nameInput = page.locator('//* [@id="signupName"]')
         const lastNameInput = page.locator('//* [@id="signupLastName"]')
@@ -166,7 +139,7 @@ test.describe("Auth4", ()=>{
     
     })
 })
-test.describe("Auth5", ()=>{
+test.describe("Auth", ()=>{
     test("The user couldn't be created if he enters incorect password in the password field", async ({page})=>{
         const name = 'Katerina'
         const lastName = 'Tomenko'
@@ -181,14 +154,11 @@ test.describe("Auth5", ()=>{
         await expect(logInButton, "Sign in button should be visible").toBeVisible()
         await expect(logInButton, "Sign in button should be enabled").toBeEnabled()
 
-        await logInButton.click()
+        const signUpButton = page.locator('div [class="hero-descriptor_btn btn btn-primary"]')
+        await expect(signUpButton, "Sign in button should be visible").toBeVisible()
+        await expect(signUpButton, "Sign in button should be enabled").toBeEnabled()
 
-        const popup = page.locator('//app-signin-modal')
-        await expect(popup, "Popup should be visible").toBeVisible()
-
-        const registrationButton = page.locator('//* [@class="btn btn-link"]', {hasText: 'Registration'})
-
-        await registrationButton.click()
+        await signUpButton.click()
 
         const nameInput = page.locator('//* [@id="signupName"]')
         const lastNameInput = page.locator('//* [@id="signupLastName"]')
@@ -213,8 +183,8 @@ test.describe("Auth5", ()=>{
     })
 })
 
-test.describe("Auth6", ()=>{
-    test.only("The user couldn't be created if he enters incorect repassword in the re-enter password field", async ({page})=>{
+test.describe("Auth", ()=>{
+    test("The user couldn't be created if he enters incorect repassword in the re-enter password field", async ({page})=>{
         const name = 'Eleftina'
         const lastName = 'ochkasova'
         const email = 'aqa-klyemenko987@icloud.com'
@@ -224,18 +194,11 @@ test.describe("Auth6", ()=>{
 
         await page.goto('/')
         
-        const logInButton = page.locator('//div/button[2]')
-        await expect(logInButton, "Sign in button should be visible").toBeVisible()
-        await expect(logInButton, "Sign in button should be enabled").toBeEnabled()
+        const signUpButton = page.locator('div [class="hero-descriptor_btn btn btn-primary"]')
+        await expect(signUpButton, "Sign in button should be visible").toBeVisible()
+        await expect(signUpButton, "Sign in button should be enabled").toBeEnabled()
 
-        await logInButton.click()
-
-        const popup = page.locator('//app-signin-modal')
-        await expect(popup, "Popup should be visible").toBeVisible()
-
-        const registrationButton = page.locator('//* [@class="btn btn-link"]', {hasText: 'Registration'})
-
-        await registrationButton.click()
+        await signUpButton.click()
 
         const nameInput = page.locator('//* [@id="signupName"]')
         const lastNameInput = page.locator('//* [@id="signupLastName"]')
