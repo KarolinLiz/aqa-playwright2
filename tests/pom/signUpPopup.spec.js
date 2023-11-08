@@ -7,13 +7,14 @@ test.describe("Register popUp", () => {
     test("The user should be created with valid credentials", async ({ page }) => {
         const welcomePage = new WelcomePage(page)
         const signUpPopup = new SignUpPopup(page)
+    
         await welcomePage.open()
         await welcomePage.waitLoaded()
 
         await welcomePage.pressSignUpButton()
         
 
-        await signUpPopup.fill("Laterina", "Kostenko", "aqa-khhповos@meta.ua", "Busia126", "Busia126")
+        await signUpPopup.fill("Laterina", "Kostenko", "aqa-k5к5екуfos@meta.ua", "Busia126", "Busia126")
         await signUpPopup.clickRegisterButton()
         await expect(page).toHaveURL(/.*garage/);
     })

@@ -3,27 +3,23 @@
 
 export default class SignUpPopup extends BaseComponent {
         constructor(page) {
-        super(page, '/', page.locator('button', {hasText: 'Sign up'}));
+        super(page,page.locator('div.modal-content'));
         this.page = page
-        this.container = page.locator('[class="modal-content"]')
-        this.nameInput = this.container.locator('[id="signupName"]')
-        this.lastNameInput = this.container.locator('[id="signupLastName"]')
-        this.emailInput = this.container.locator('[id="signupEmail"]')
-        this.passwordInput = this.container.locator('[id="signupPassword"]')
-        this.repasswordInput = this.container.locator('[id="signupRepeatPassword"]')
-        this.registerButton = this.container.locator('[class="btn btn-primary"]')
-        this.nameErrorMessage = this.container.locator('div.invalid-feedback')
+        this.nameInput = this._container.locator('input#signupName')
+        this.lastNameInput = this._container.locator('[id="signupLastName"]')
+        this.emailInput = this._container.locator('[id="signupEmail"]')
+        this.passwordInput = this._container.locator('[id="signupPassword"]')
+        this.repasswordInput = this._container.locator('[id="signupRepeatPassword"]')
+        this.registerButton = this._container.locator('[class="btn btn-primary"]')
+        this.nameErrorMessage = this._container.locator('div.invalid-feedback')
         }
-    
-    async waitLoaded(){
-        await this.container.waitFor()
-    }
     async fill(name, lastName, email, password, rePassword){
         await this.nameInput.fill(name)
         await this.lastNameInput.fill(lastName)
         await this.emailInput.fill(email)
         await this.passwordInput.fill(password)
-        await this.repasswordInput.fill(rePassword)
+        await this.repasswordInput.fill(rePassword) 
+        return new SignUpPopup(this._page)
 
     }
     async clickRegisterButton(){
@@ -31,7 +27,7 @@ export default class SignUpPopup extends BaseComponent {
     }
    
     async checkNameAlertMessage(){
-        await this.nameErrorMessage.toHaveText('Name has to be from 2 to 20 characters long')
+        await this._nameErrorMessage.toHaveText('Name has to be from 2 to 20 characters long')
     }
     
 }

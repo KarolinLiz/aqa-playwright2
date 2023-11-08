@@ -1,5 +1,6 @@
 import BasePage from "../BasePage.js";
 import {expect} from "@playwright/test";
+import SignUpPopup from "../SignUpPopup/SignUpPopup.js";
 
 export default class WelcomePage extends BasePage {
     constructor(page) {
@@ -11,42 +12,7 @@ export default class WelcomePage extends BasePage {
 
     async pressSignUpButton(){
         await this.signUpButton.click()
-        // await expect(signUpButton, "Sign up button should be visible").toBeVisible()
-        // await expect(signUpButton, "Sign up button should be enabled").toBeEnabled()
+        return new SignUpPopup(this._page)
         
     }
 }
-
-//     get nameField() {
-//         return this.page.locator('//*[@id="signupName"]')
-//     }
-
-//     get lastNameField() {
-//         return this.page.locator('//* [@id="signupLastName"]')
-//     }
-
-//     get emailField() {
-//         return this.page.locator('//* [@id="signupEmail"]')
-//     }
-
-//     get passwordField() {
-//         return this.page.locator('//*[@id="signupPassword"]')
-//     }
-
-//     get repeatPassword() {
-//         return this.page.locator('//*[@id="signupRepeatPassword"]')
-//     }
-
-//     get registerButton() {
-//         return this.page.locator('//*[@class="btn btn-primary"]')
-//     }
-
-//     async fillSignupForm(formData) {
-//         await this.nameField.fill(formData.name)
-//         await this.lastNameField.fill(formData.lastName)
-//         await this.emailField.fill(formData.email)
-//         await this.passwordField.fill(formData.password)
-//         await this.repeatPassword.fill(formData.repassword)
-//         await this.registerButton.click()
-//     }
-// }
