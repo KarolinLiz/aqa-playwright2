@@ -3,7 +3,7 @@ import WelcomePage from "../../src/pageObjects/welcomePage/WelcomePage.js";
 import SignUpPopup from "../../src/pageObjects/SignUpPopup/SignUpPopup.js";
 
 
-test.describe("Register popUp", () => {
+test.describe("Register popUp @smoke", () => {
     test("The user should be created with valid credentials", async ({ page }) => {
         const welcomePage = new WelcomePage(page)
         const signUpPopup = new SignUpPopup(page)
@@ -14,7 +14,7 @@ test.describe("Register popUp", () => {
         await welcomePage.pressSignUpButton()
         
 
-        await signUpPopup.fill("Laterina", "Kostenko", "aqa-k5к5екуfos@meta.ua", "Busia126", "Busia126")
+        await signUpPopup.fill("Laterina", "Kostenko", "aqa-fghаеs@meta.ua", "Busia126", "Busia126")
         await signUpPopup.clickRegisterButton()
         await expect(page).toHaveURL(/.*garage/);
     })
