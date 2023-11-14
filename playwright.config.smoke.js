@@ -16,6 +16,7 @@ const config =  defineConfig({
   testDir: './tests',
   globalSetup: './globalSetup',
   globalTeardown: './globalTeardown',
+  grep: /@smoke/,
   timeout: 360_000,
   /* Run tests in files in parallel */
   fullyParallel: false,

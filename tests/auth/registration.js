@@ -1,12 +1,20 @@
-import {expect, test} from "@playwright/test";
+
 
 test.describe("Auth", ()=>{
     test("The user should be created with valid credentials", async ({page})=>{
-        const name = 'Tyglia'
-        const lastName = 'Kghndratenko'
-        const email = 'aqa-kokhgfratenko@icloud.com'
-        const password = 'Likavlad2021'
-        const repassword = 'Likavlad2021'
+        const welcomePage = new WelcomePage(page);
+        // const name = 'Tyguytgia'
+        // const lastName = 'Kghtytrratenko'
+        // const email = 'aqa-kokhtgynjfdnko@icloud.com'
+        // const password = 'Likavlad2021'
+        // const repassword = 'Likavlad2021'
+        let signUpData = {
+            name: 'Tyguytgia',
+            lastName: 'Kghtytrratenko',
+            email: 'aqa-kokhtgynjfdnko@icloud.com',
+            password: 'Likavlad2021',
+            repassword: 'Likavlad2021'
+        }
 
 
         await page.goto('/')
@@ -17,21 +25,21 @@ test.describe("Auth", ()=>{
 
         await signUpButton.click()
 
+        await welcomePage.fillSignupForm(signUpData)
+        // const nameInput = page.locator('//*[@id="signupName"]')
+        // const lastNameInput = page.locator('//*[@id="signupLastName"]')
+        // const emailInput = page.locator('//*[@id="signupEmail"]')
+        // const passwordInput = page.locator('//*[@id="signupPassword"]')
+        // const repeatPassword = page.locator('//*[@id="signupRepeatPassword"]')
+        // const registerButton = page.locator('//*[@class="btn btn-primary"]')
 
-        const nameInput = page.locator('//* [@id="signupName"]')
-        const lastNameInput = page.locator('//* [@id="signupLastName"]')
-        const emailInput = page.locator('//* [@id="signupEmail"]')
-        const passwordInput = page.locator('//* [@id="signupPassword"]')
-        const repeatPassword = page.locator('//* [@id="signupRepeatPassword"]')
-        const registerButton = page.locator('//* [@class="btn btn-primary"]')
+        // await nameInput.fill(name)
+        // await lastNameInput.fill(lastName)
+        // await emailInput.fill(email)
+        // await passwordInput.fill(password)
+        // await repeatPassword.fill(repassword)
 
-        await nameInput.fill(name)
-        await lastNameInput.fill(lastName)
-        await emailInput.fill(email)
-        await passwordInput.fill(password)
-        await repeatPassword.fill(repassword)
-
-        await registerButton.click()
+        // await registerButton.click()
 
         await expect(page).toHaveURL(/.*garage/);
 
@@ -103,7 +111,7 @@ test.describe("Auth3", ()=>{
     })
 })
 
-test.describe("Auth", ()=>{
+test.describe("Auth4", ()=>{
     test("The user couldn't be created if he enters invalid email address in the email field", async ({page})=>{
         const name = 'Eelyzaveta'
         const lastName = 'Klyemenko'
@@ -139,7 +147,7 @@ test.describe("Auth", ()=>{
     
     })
 })
-test.describe("Auth", ()=>{
+test.describe("Auth5", ()=>{
     test("The user couldn't be created if he enters incorect password in the password field", async ({page})=>{
         const name = 'Katerina'
         const lastName = 'Tomenko'
@@ -183,7 +191,7 @@ test.describe("Auth", ()=>{
     })
 })
 
-test.describe("Auth", ()=>{
+test.describe("Auth6", ()=>{
     test("The user couldn't be created if he enters incorect repassword in the re-enter password field", async ({page})=>{
         const name = 'Eleftina'
         const lastName = 'ochkasova'
