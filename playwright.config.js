@@ -2,6 +2,7 @@
 import { defineConfig, devices } from '@playwright/test'
 import {config as testConfig} from "./config/config.js"
 
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -13,7 +14,8 @@ import {config as testConfig} from "./config/config.js"
  */
 
 const config =  defineConfig({
-  testDir: './tests',
+  // testDir: './tests',
+  testMatch: 'tests/**/*.spec.js',
   globalSetup: './globalSetup',
   globalTeardown: './globalTeardown',
   timeout: 360_000,
