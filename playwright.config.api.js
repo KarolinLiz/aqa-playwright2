@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test'
 import {testConfig as testConfig} from "./config/config.js"
-import {STORAGE_STATE_USER_PATH} from "./src/pageObjects/data/dict/storageState.js"
+
 
 /**
  * Read environment variables from file.
@@ -54,14 +54,9 @@ const config =  defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'setup',
-       testMatch: '**/setup/**/*.setup.js',
-    },
-    {
-      name: 'chromium',
+      name: 'api tests',
       use: { ...devices['Desktop Chrome'] },
-      dependencies: ['setup'],
-      testIgnore: 'test/api/**/*.spec.js'
+      testMatch: 'tests/api/**/*.spec.js'
     },
     // {
     //   name: 'api',
