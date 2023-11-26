@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test'
-import {testConfig as testConfig} from "./config/config.js"
+import {config as testConfig} from "./config/config.js"
 import {STORAGE_STATE_USER_PATH} from "./src/pageObjects/data/dict/storageState.js"
 
 /**
@@ -33,12 +33,9 @@ const config =  defineConfig({
   use: {
     headless: false,
     // storageState: STORAGE_STATE_USER_PATH,
-    httpCredentials: {
-      username: "guest",
-      password: "welcote2qauto"
-    },
+    httpCredentials: testConfig.httpCredentials,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://qauto.forstudy.space/',
+    baseURL: testConfig.baseURL,
     viewport: {
       width: 1200,
       height: 840
@@ -53,15 +50,15 @@ const config =  defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'setup',
-       testMatch: '**/setup/**/*.setup.js',
-    },
+    // {
+    //   name: 'setup',
+    //    testMatch: '**/setup/**/*.setup.js',
+    // },
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-      dependencies: ['setup'],
-      testIgnore: 'test/api/**/*.spec.js'
+      
+      // dependencies: ['setup'],
+      
     },
     // {
     //   name: 'api',
