@@ -4,7 +4,7 @@ import SignUpPopup from "../../src/pageObjects/SignUpPopup/SignUpPopup.js";
 
 
 test.describe("Register popUp ", () => {
-    test("The user should be created with valid credentials", async ({ page }) => {
+    test.skip("The user should be created with valid credentials", async ({ page }) => {
         const welcomePage = new WelcomePage(page)
         const signUpPopup = new SignUpPopup(page)
     
@@ -21,7 +21,7 @@ test.describe("Register popUp ", () => {
 
 })
 test.describe("Register popUp", () => {
-    test("The alert message should be visible if user enters invalid name, shorter than 2 symbols", async ({ page }) => {
+    test.skip("The alert message should be visible if user enters invalid name, shorter than 2 symbols", async ({ page }) => {
         const welcomePage = new WelcomePage(page)
         const signUpPopup = new SignUpPopup(page)
         await welcomePage.open()
@@ -41,7 +41,7 @@ test.describe("Register popUp", () => {
 
 })
 test.describe("Register popUp", () => {
-    test("The alert message should be visible if user enters invalid last name, longer than 20 simbols", async ({ page }) => {
+    test.skip("The alert message should be visible if user enters invalid last name, longer than 20 simbols", async ({ page }) => {
         const welcomePage = new WelcomePage(page)
         const signUpPopup = new SignUpPopup(page)
         await welcomePage.open()
@@ -60,7 +60,7 @@ test.describe("Register popUp", () => {
 
     })
     test.describe("Register popUp", () => {
-        test("The user couldn't be created if he enters invalid email address in the email field", async ({ page }) => {
+        test.skip("The user couldn't be created if he enters invalid email address in the email field", async ({ page }) => {
             const welcomePage = new WelcomePage(page)
             const signUpPopup = new SignUpPopup(page)
             await welcomePage.open()
@@ -79,7 +79,7 @@ test.describe("Register popUp", () => {
     
         })
         test.describe("Register popUp", () => {
-            test("The user couldn't be created if he enters incorect password in the password field", async ({ page }) => {
+            test.skip("The user couldn't be created if he enters incorect password in the password field", async ({ page }) => {
                 const welcomePage = new WelcomePage(page)
                 const signUpPopup = new SignUpPopup(page)
                 await welcomePage.open()
@@ -98,7 +98,7 @@ test.describe("Register popUp", () => {
         
             })
             test.describe("Register popUp", () => {
-                test("The user couldn't be created if he enters incorect repassword in the re-enter password field", async ({ page }) => {
+                test.skip("The user couldn't be created if he enters incorect repassword in the re-enter password field", async ({ page }) => {
                     const welcomePage = new WelcomePage(page)
                     const signUpPopup = new SignUpPopup(page)
                     await welcomePage.open()

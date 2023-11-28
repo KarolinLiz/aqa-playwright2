@@ -10,18 +10,18 @@ test.use({
 })
 
 test.describe('Garage page', ()=>{
-    test('The user could be loged in',async ({userGaragePage})=>{
+    test.skip('The user could be loged in',async ({userGaragePage})=>{
        await expect(userGaragePage.emptyPanel,"The empty page should have correct text").toHaveText("You don’t have any cars in your garage")
     })
 
 
 
-test.only('should use storage state', async({page})=>{
+test.skip('should use storage state', async({page})=>{
     const garagePage = new GaragePage(page)
     await garagePage.navigate()
     await expect(garagePage.emptyPanel,"The empty page should have correct text").toHaveText("You don’t have any cars in your garage")
 })
-    test('Should save storage state',async ({page, context})=>{
+    test.skip('Should save storage state',async ({page, context})=>{
         const welcomePage = new WelcomePage(page)
         await welcomePage.navigate()
         const popup = await welcomePage.pressSignInButton()

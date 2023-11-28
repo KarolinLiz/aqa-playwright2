@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test'
-import {testConfig as testConfig} from "./config/config.js"
+
 
 
 /**
