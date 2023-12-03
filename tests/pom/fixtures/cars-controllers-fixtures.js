@@ -2,6 +2,17 @@ export const CARS_BRANDS = {
     id: 3, title: 'Ford', logoFilename: 'ford.png'
 }
 
+export const LIST_OF_CARS_BRANDS = {
+    status: 'ok',
+    data: [
+      { id: 1, title: 'Audi', logoFilename: 'audi.png' },
+      { id: 2, title: 'BMW', logoFilename: 'bmw.png' },
+      { id: 3, title: 'Ford', logoFilename: 'ford.png' },
+      { id: 4, title: 'Porsche', logoFilename: 'porsche.png' },
+      { id: 5, title: 'Fiat', logoFilename: 'fiat.png' }
+    ]
+  }
+
 export const CARS_MODELS_LEAST = {
     status: 'ok',
     data: [
@@ -41,7 +52,55 @@ export const CREATED_CAR = {
     "mileage": 123
 }
 export const EDIT_CAR_BODY = {
-    "carBrandId": 2,
-    "carModelId": 3,
+    "carBrandId": 3,
+    "carModelId": 1,
     "mileage": 323
 }
+export const LIST_OF_CURRENT_USER_CARS ={
+    status: 'ok',
+    data: [
+      {
+        id: 70040,
+        carBrandId: 4,
+        carModelId: 17,
+        initialMileage: 678,
+        updatedMileageAt: '2023-11-29T19:57:52.000Z',
+        carCreatedAt: '2023-11-29T19:57:52.000Z',
+        mileage: 678,
+        brand: 'Porsche',
+        model: 'Cayenne',
+        logo: 'porsche.png'
+      }
+    ]
+  }
+  export const VALID_BRANDS_MODELS = {
+    1:  {
+        "status": "ok",
+        "data": [
+            {
+                "id": 1,
+                "carBrandId": 1,
+                "title": "TT"
+            },
+            {
+                "id": 2,
+                "carBrandId": 1,
+                "title": "R8"
+            },
+            {
+                "id": 3,
+                "carBrandId": 1,
+                "title": "Q7"
+            },
+            {
+                "id": 4,
+                "carBrandId": 1,
+                "title": "A6"
+            },
+            {
+                "id": 5,
+                "carBrandId": 1,
+                "title": "A8"
+            }
+        ]
+    }}

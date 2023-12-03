@@ -16,11 +16,11 @@ test.describe("API", () => {
         })
     })
 
-    test.only("Should create new car", async () => {
+    test("Should create new car", async () => {
         const response = await client.cars.createCar(CREATED_CAR)
-        console.log(response.data)
         newCarId = response.data.data.id
-        console.log(newCarId)
+        const response2 = await client.cars.deleteCarById(newCarId)
+
         expect(response.status, "Status code should be 200").toEqual(201)
         expect(response.data.data, "The new car should be returned").toEqual(expect.objectContaining(CREATED_CAR))
         

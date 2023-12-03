@@ -9,8 +9,8 @@ export default class CarController extends BaseController {
     #GET_USERS_CARS_PATH = 'cars'
     #CREATE_CAR_PATH = 'cars'
     #GET_USERS_CAR_BY_ID_PATH = 'cars/#'
-    #PUT_EXIST_CAR_BY_ID_PATH = 'cars/70269'
-    #DELETE_CARS_PATH = 'cars/#'
+    #MODIFY_EXIST_CAR_BY_ID_PATH = 'cars/#'
+    #DELETE_CARS_BY_ID_PATH = 'cars/#'
 
     constructor(options) {
         super(options)
@@ -43,11 +43,11 @@ export default class CarController extends BaseController {
         return this._client.get(this.#GET_USERS_CAR_BY_ID_PATH.replace('#', id))
 
     }
-    async putExistCarById(editCarBody) {
-        return this._client.get(this.#PUT_EXIST_CAR_BY_ID_PATH, editCarBody)
+    async modifyExistCarById(id,data) {
+        return this._client.put(this.#MODIFY_EXIST_CAR_BY_ID_PATH.replace('#', id),data)
 
     }
-    async deleteCar(id) {
-        return this._client.delete(this.#DELETE_CARS_PATH.replace('#', id))
+    async deleteCarById(id) {
+        return this._client.delete(this.#DELETE_CARS_BY_ID_PATH.replace('#', id))
     }
 }

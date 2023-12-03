@@ -6,6 +6,7 @@ import { CREATED_CAR } from "../pom/fixtures/cars-controllers-fixtures.js"
 
 test.describe("API", () => {
     let client
+    let newCarId
 
     test.beforeAll(async () => {
         client = await APIClient.authenticate(undefined, {
@@ -13,13 +14,15 @@ test.describe("API", () => {
             "password": USERS.JOE_DOU.password,
             "remember": false
         })
+        const response1 = await client.cars.createCar(CREATED_CAR)
+        newCarId = response1.data.data.id
     })
 
     test("Should delete car by id", async () => {
-        const response1 = await client.cars.createCar(CREATED_CAR)
-        const newCarId = response1.data.data.id
-        const response2 = await client.cars.deleteCar(newCarId)
+        
+        const response2 = await client.cars.deleteCarById(newCarId)
         const response3 = await client.cars.getCarBrandById(newCarId)
+
         expect(response2.status, "Status code should be 200").toEqual(200)
         expect(response3.status, "Status code should be 404").toEqual(404)
 

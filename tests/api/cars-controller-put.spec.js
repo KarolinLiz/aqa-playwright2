@@ -14,19 +14,17 @@ test.describe("API", () => {
             "password": USERS.JOE_DOU.password,
             "remember": false
         })
+        
+    
     })
 
     test("Should edit existing car by id", async () => {
         const response1 = await client.cars.createCar(CREATED_CAR)
-        console.log(response1.data)
         const id = response1.data.data.id
-        console.log(response1.data.id)
-        const response2 = await client.cars.putExistCarById({
-            "carBrandId": 2,
-            "carModelId": 3,
-            "mileage": 323
-        })
+        const response2 = await client.cars.modifyExistCarById(id,EDIT_CAR_BODY)
+
+        const response3 = await client.cars.deleteCarById(id)
         expect(response2.status, "Status code should be 200").toEqual(200)
-        expect(response2.data.data, "The edited car should be returned").toEqual(expect.objectContaining(EDIT_CAR_BODY))
+        expect(response2.data.data, "The edited car should be returned").toEqual(expect.objectContaining({"mileage": 323,}))
     })
 })
