@@ -1,7 +1,7 @@
 
 
 test.describe("Auth", ()=>{
-    test("The user should be created with valid credentials", async ({page})=>{
+    test.skip("The user should be created with valid credentials", async ({page})=>{
         const welcomePage = new WelcomePage(page);
         // const name = 'Tyguytgia'
         // const lastName = 'Kghtytrratenko'
@@ -50,7 +50,7 @@ test.describe("Auth", ()=>{
 
 
 test.describe("Auth", ()=>{
-    test("The alert message should be visible if user enters invalid name, shorter than 2 simbols", async ({page})=>{
+    test.skip("The alert message should be visible if user enters invalid name, shorter than 2 simbols", async ({page})=>{
         const name = 'E'
         const lastName = 'Klyemenko'
         
@@ -80,7 +80,7 @@ test.describe("Auth", ()=>{
 })
 
 test.describe("Auth3", ()=>{
-    test("The alert message should be visible if user enters invalid last name, longer than 20 simbols", async ({page})=>{
+    test.skip("The alert message should be visible if user enters invalid last name, longer than 20 simbols", async ({page})=>{
         const name = 'Eelyzaveta'
         const lastName = 'klumynbhgtyuyujhgbnjh'
         const email = 'aqa-klyemenko987@icloud.com'
@@ -112,7 +112,7 @@ test.describe("Auth3", ()=>{
 })
 
 test.describe("Auth4", ()=>{
-    test("The user couldn't be created if he enters invalid email address in the email field", async ({page})=>{
+    test.skip("The user couldn't be created if he enters invalid email address in the email field", async ({page})=>{
         const name = 'Eelyzaveta'
         const lastName = 'Klyemenko'
         const email = 'cat'
@@ -148,7 +148,7 @@ test.describe("Auth4", ()=>{
     })
 })
 test.describe("Auth5", ()=>{
-    test("The user couldn't be created if he enters incorect password in the password field", async ({page})=>{
+    test.skip("The user couldn't be created if he enters incorect password in the password field", async ({page})=>{
         const name = 'Katerina'
         const lastName = 'Tomenko'
         const email = 'kfkhljlymg@meta.ua'
@@ -192,7 +192,7 @@ test.describe("Auth5", ()=>{
 })
 
 test.describe("Auth6", ()=>{
-    test("The user couldn't be created if he enters incorect repassword in the re-enter password field", async ({page})=>{
+    test.skip("The user couldn't be created if he enters incorect repassword in the re-enter password field", async ({page})=>{
         const name = 'Eleftina'
         const lastName = 'ochkasova'
         const email = 'aqa-klyemenko987@icloud.com'

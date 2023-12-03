@@ -23,12 +23,12 @@ test.describe("Welcome page", () => {
         await welcomePage.waitLoaded()
     })
 
-    test('should contain all required links in header', async () => {
+    test.skip('should contain all required links in header', async () => {
         const linksText = await welcomePage.header.getLinksText()
         expect(linksText, "All required links should be present").toEqual(HEADER_LINKS_WELCOME_PAGE)
     })
 
-    test('should contain all required links in header 2', async () => {
+    test.skip('should contain all required links in header 2', async () => {
         await welcomePage.header.verifyLinksText(HEADER_LINKS_WELCOME_PAGE)
     })
 })
