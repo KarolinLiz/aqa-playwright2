@@ -28,7 +28,7 @@ test.describe("API", () => {
         console.log(responceLogin)
     })
 
-    test.skip("should return valid brands", async () => {
+    test("should return valid brands", async () => {
         const response = await client.get('cars')
 
         expect(response.status, "Status code should be 200").toEqual(200)

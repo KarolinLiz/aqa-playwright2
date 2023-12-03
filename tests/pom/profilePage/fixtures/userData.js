@@ -1,4 +1,4 @@
-export const VALID_USER_RESPONCE_BODY= {
+export const VALID_USER_RESPONCE_BODY = {
     "status": "ok",
     "data": {
         "userId": 54201,
@@ -7,7 +7,7 @@ export const VALID_USER_RESPONCE_BODY= {
         "lastName": "Klymenko"
     }
 }
-export const INVALID_USER_RESPONCE_BODY= {
+export const INVALID_USER_RESPONCE_BODY = {
     "status": "ok",
     "data": {
         "userId": 54201,
