@@ -10,7 +10,7 @@ export default class APIClient {
         this.cars = new CarController(options)
     }
 
-    static async authenticate(options = { baseUrl: config.apiURL }, userData) {
+    static async authenticate(userData, options = { baseUrl: config.apiURL }) {
         const jar = new CookieJar()
         const authController = new AuthController({ ...options, cookies: jar })
         await authController.signIn(userData)
