@@ -1,4 +1,4 @@
-
+import CreateCarModel  from "../models/cars/CreateCarModel";
 import BaseController from "./BaseController";
 
 export default class CarController extends BaseController {
@@ -35,8 +35,8 @@ export default class CarController extends BaseController {
         return this._client.get(this.#GET_USERS_CARS_PATH)
 
     }
-    async createCar(createCarRequestBody) {
-        return this._client.post(this.#CREATE_CAR_PATH, createCarRequestBody)
+    async createCar(data) {
+        return this._client.post(this.#CREATE_CAR_PATH, data)
 
     }
     async getUsersCarById(id) {
