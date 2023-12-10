@@ -11,4 +11,4 @@ WORKDIR /aqa-playwright2
 
 RUN npm ci
 
-CMD ["npm", "npm run test:api"] 
+CMD ["npm", "npx playwright test -c playwright.config.api.js"] 
