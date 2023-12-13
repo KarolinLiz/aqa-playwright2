@@ -10,15 +10,27 @@ jobs:
           with:
             repository:  ${{github.repository}}
             ref: ${{github.ref}}
+        - name: "Use node js"
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+        -name: "Instal dependensis"
+          run: npm ci
         - name: "copy environment variables"
           run: |
             cp '.env.example.stage' '.env'
         - name: "Run tests"
-          run: |
-            HTTP_CREDENTIALS_USERNAME=${{secrets.HTTP_CREDENTIALS_USERNAME}} HTTP_CREDENTIALS_PASSWORD=${{secrets.HTTP_CREDENTIALS_PASSWORD}} docker-compose up --exit-code-from auto-tests
+          run: npx playwright test -c playwright.config.api.js
+          env:
+            HTTP_CREDENTIALS_USERNAME: ${{secrets.HTTP_CREDENTIALS_USERNAME}}
+            HTTP_CREDENTIALS_PASSWORD: ${{secrets.HTTP_CREDENTIALS_PASSWORD}} 
         - name: "Upload artifacts"
           if: failure()
-          uses: actions/checkout@v3
+          uses: actions/upload-artifact@v3
           with:
-            name: test-report
+            name: github-pages
             path: playwright-report/
+        - name: Fix permissions
+          if: failure()
+          run: |
+            
