@@ -11,4 +11,4 @@ WORKDIR /aqa-playwright2
 
 RUN npm ci
 
-CMD ["npm","run" "test:api"]
+CMD ["npm","run", "test:api"]
